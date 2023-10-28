@@ -19,11 +19,11 @@ class Person {
 class House {
   constructor(public key: Key) {}
 
-  public door: "true" | "false" = "false";
+  public door: boolean = false;
   public tenants: Array<Person> = [];
 
   public comeIn(person: Person) {
-    if (this.door === "true") {
+    if (this.door) {
       this.tenants.push(person);
     }
   }
@@ -34,8 +34,8 @@ class House {
 class MyHouse extends House {
   public openDoor(key: Key): void {
     this.key.getSignature() === key.getSignature()
-      ? (this.door = "true")
-      : (this.door = "false");
+      ? (this.door = true)
+      : (this.door = false);
   }
 }
 
