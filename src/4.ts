@@ -22,17 +22,17 @@ class House {
   public door: "true" | "false" = "false";
   public tenants: Array<Person> = [];
 
-  public comeIn(this: House, person: Person) {
+  public comeIn(person: Person) {
     if (this.door === "true") {
       this.tenants.push(person);
     }
   }
 
-  public openDoor(this: House, key: Key): void {}
+  public openDoor(key: Key): void {}
 }
 
 class MyHouse extends House {
-  public openDoor(this: House, key: Key): void {
+  public openDoor(key: Key): void {
     this.key.getSignature() === key.getSignature()
       ? (this.door = "true")
       : (this.door = "false");
